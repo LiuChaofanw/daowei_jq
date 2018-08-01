@@ -1,0 +1,20 @@
+{
+  "name": "dw-jquery",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.3",
+    "moment": "^2.22.2",
+    "swiper": "^4.3.3"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-less": "^4.0.1"
+  }
+}

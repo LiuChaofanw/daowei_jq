@@ -1,0 +1,272 @@
+@import "./mixins";
+#wrap{
+  font: 16px/1.5 latoregular, Verdana, sans-serif;
+  #header{
+    height: 70px;
+    width: 100%;
+    color: #333333;
+    background: #ffffff;
+    perspective: 500px;
+
+    &.active{
+      position: fixed;
+      z-index: 10;
+      animation: fixed 1s;
+      background: rgba(255, 255, 255, 0.96);
+    }
+    @keyframes fixed {
+      from{
+        transform: rotateX(90deg);
+        background: #ffffff;
+        transform-origin: top;
+      }
+      to{
+        transform: rotateX(0deg);
+        background: rgba(255, 255, 255, 0.96);
+        transform-origin: top;
+      }
+    }
+    .header_wrap{
+      .clearFix;
+      height: 65px;
+      width: 1170px;
+      margin: auto;
+      .header_logo{
+        height: 65px;
+        width: 280px;
+        float: left;
+        line-height: 65px;
+        &>a>img{
+          height: 40px;
+          width: 280px;
+          margin-top: 8px;
+        }
+      }
+      .header_nav{
+        height: 100%;
+        .header_list{
+          float: right;
+          margin-top: 8px;
+          .header_item{
+            float: left;
+            height: 100%;
+            box-sizing: border-box;
+            padding: 10px 15px;
+            &>a{
+              font-weight: bolder;
+              &.red{
+                color: red;
+              }
+              &.active{
+                color: red;
+              }
+            }
+            &:first-child{
+              margin-right: 50px;
+              font-size: 0;
+              &>a{
+                &>span{
+                  font-weight: bolder;
+                  font-size: 16px;
+                  vertical-align: middle;
+                }
+                &>img{
+                  vertical-align: middle;
+                }
+              }
+            }
+            &:last-child{
+              &>a{
+                display: inline-block;
+                background-color: red;
+                height: 30px;
+                width:80px;
+                text-align: center;
+                line-height: 30px;
+                color: white;
+                border-radius: 5px;
+                font-weight: bolder;
+              }
+
+            }
+
+          }
+        }
+      }
+    }
+  }
+  #content_wrap{
+    width: 100%;
+    background-color: #fbf8f8;
+    .content{
+      width: 1200px;
+      margin: auto;
+      .clearFix;
+      .content_header{
+        height: 85px;
+        line-height: 85px;
+        font-size: 18px;
+        color: inherit;
+        font-weight: 700;
+      }
+      .content_right{
+        float: right;
+        width: 230px;
+        height: 100%;
+        .content_right_top{
+          width: 100%;
+          height: 299px;
+          margin-bottom: 10px;
+          &>img{
+            width: 100%;
+          }
+        }
+        .content_right_bottom{
+          height: 290px;
+          width: 230px;
+          background-image: url("../images/deBg02.jpg");
+          background-repeat: no-repeat;
+          background-size: cover;
+          &>img{
+            width: 130px;
+            height: 130px;
+            margin: 50px 0 0 50px;
+          }
+        }
+      }
+      .content_left{
+        float: left;
+        width: 970px;
+        &>li>a{
+          height: 278px;
+          width: 210px;
+          border:1px solid #eaeaea;
+          padding: 10px;
+          margin: 0 10px 10px 0;
+          float: left;
+          &:hover{
+            box-shadow: 5px 5px 15px #ccc ;
+          }
+          &.content_more{
+            box-sizing: border-box;
+            width: 200px;
+            height: 50px;
+            margin: 50px 385px 100px;
+            text-align: center;
+            color: #b1b1b1;
+            &>img{
+              height: 7px;
+              width: 12px;
+            }
+          }
+          &>img{
+            height: 210px;
+            width: 210px;
+          }
+          .content_left_home{
+            &>img{
+              vertical-align: middle;
+            }
+            &>span{
+              font-weight: 800;
+            }
+          }
+          .content_left_order{
+            .clearFix;
+            font-size: 12px;
+            color: #929292;
+            margin-top: 10px;
+            &>span:nth-child(1){
+              float: left;
+            }
+            &>span:nth-child(2){
+              float: right;
+            }
+          }
+        }
+      }
+
+    }
+  }
+  #footer{
+    .last_two{
+      padding-top: 50px;
+      width: 1170px;
+      margin: auto;
+      .content_item_wrap{
+        text-align: center;
+        .last_two_header{
+          font-size: 30px;
+          font-family: "微软雅黑";
+          font-weight: 800;
+          line-height: 1.1;
+          margin-top: 20px;
+          margin-bottom: 10px;
+          color: inherit;
+          &>span{
+            color: #fb474f;
+            font-weight: 800;
+          }
+        }
+        &>p:nth-of-type(1){
+          font-size: 22px;
+          color: #3d3838;
+          margin: 10px 0;
+        }
+        &>p:nth-of-type(2){
+          &>span{
+            &>img{
+              vertical-align: middle;
+              margin: 0 10px;
+            }
+            color: #1d1515;
+            font-size: 18px;
+          }
+        }
+        .city_list{
+          //height: 170px;
+          .clearFix;
+          width: 100%;
+          padding-top: 50px;
+          box-sizing: border-box;
+          margin-bottom: 30px;
+          margin-top: 20px;
+          .city_left{
+            float: left;
+            font-family: " 微软雅黑";
+            font-size: 18px;
+            font-weight: 700;
+            line-height: 1.43;
+            height: 100%;
+            width: 170px;
+            text-align: left;
+          }
+          .city_right{
+            float: right;
+            width: 1000px;
+            /*height: 100%;*/
+            &>li{
+              float: left;
+              width: 90.5px;
+              height: 30px;
+              font-size: 16px;
+              color: #898989
+            }
+          }
+        }
+      }
+    }
+    .footer_bottom{
+      background-color:  #fbf8f8;
+      height: 40px;
+      line-height: 40px;
+      .footer_banquan{
+        width: 1170px;
+        margin: auto;
+        color: #898989;
+        font-size: 14px;
+      }
+    }
+
+  }
+}

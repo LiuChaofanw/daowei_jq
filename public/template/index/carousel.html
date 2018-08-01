@@ -1,0 +1,14 @@
+{{each indexData as value index}}
+  <li class="carousel_item">
+  <a href="#">
+    {{value.serviceIndex}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <img src="./images/right.png"/>
+  </a>
+  <img src="./images/icon1.png" class="carousel_small"/>
+  <ul>
+    {{each value.serviceType as value index}}
+    <li>{{value}}</li>
+    {{/each}}
+  </ul>
+</li>
+{{/each}}

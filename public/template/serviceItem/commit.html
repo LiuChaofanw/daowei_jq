@@ -1,0 +1,30 @@
+
+  <div class="commit_header">
+    <span>用户评论</span>（{{length}}条评论）
+  </div>
+  <div class="comment_container">
+    {{each comment as value index}}
+    <div class="comment">
+      <div class="comment_left">
+        <img src="{{value.iconUrl}}"/>
+      </div>
+      <div class="comment_right">
+        <div class="comment_name">{{value.nick}}</div>
+        <div class="comment_date">
+          {{each value.starA as value index}}
+          <img src="http://www.daoway.cn/pcimages/red_star.png"/>
+          {{/each}}
+
+          {{each value.starB as value index}}
+          <img src="http://www.daoway.cn/pcimages/gray_star.png"/>
+          {{/each}}
+          {{value.createtime}}</div>
+        <div class="comment_content">{{value.comment}}</div>
+        <div class="comment_place">
+          <img src="http://www.daoway.cn/pcimages/position.jpg"/>
+          {{value.city}} {{value.area}}
+        </div>
+      </div>
+    </div>
+    {{/each}}
+  </div>

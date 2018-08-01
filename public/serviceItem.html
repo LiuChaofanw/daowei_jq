@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="./css/reset.css">
+  <link rel="stylesheet" href="./css/serviceItem.css">
+  <title>Title</title>
+</head>
+<body>
+  <div id="wrap">
+    <div id="header">
+      <div class="header_wrap">
+        <div class="header_logo">
+          <a href="#">
+            <img src="./images/logo.png" alt="logo"/>
+          </a>
+        </div>
+        <div class="header_nav">
+          <ul class="header_list">
+            <li class="header_item">
+              <a href="javascript:;">
+                <img src="images/citypoint.png"/>
+                <span>北京 切换城市</span>
+              </a>
+            </li>
+            <li class="header_item">
+              <a href="index.html">
+                首页
+              </a>
+            </li>
+            <li class="header_item">
+              <a href="#">
+                到位APP
+              </a>
+            </li>
+            <li class="header_item">
+              <a href="service.html">
+                服务商
+              </a>
+            </li>
+            <li class="header_item">
+              <a href="#">
+                商家入驻
+              </a>
+            </li>
+            <li class="header_item">
+              <a href="#">
+                关于我们
+              </a>
+            </li>
+            <li class="header_item">
+              <a href="#">
+                商家登录
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div id="service_name">
+      <div class="blank"></div>
+      <div class="service_name_wrap">
+        <div class="service_name_content">
+          <div class="service_left">
+            <span class="name">云家政</span>
+            <span class="time">营业时间：<span class="black">08:00-18:00 &nbsp;&nbsp;</span> 最近可预约时间：<span class="red">07月31日 17:00</span></span>
+          </div>
+          <div class="service_right">
+            <div>
+              <p class="red">53582</p>
+              <p>成功接单</p>
+            </div>
+            <div class="link">|</div>
+            <div>
+              <p class="red">89%</p>
+              <p>接单率</p>
+            </div>
+            <div class="link">|</div>
+            <div>
+              <p class="red">86%</p>
+              <p>好评率</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="service_detail">
+      <div class="detail_header">
+        <ul class="detail_list">
+          <li><a href="javascript:;">服务项目</a></li>
+          <li><a href="javascript:;">商家简介</a></li>
+          <li><a href="javascript:;">用户评论</a></li>
+        </ul>
+      </div>
+      <div class="detail_wrap">
+        <div class="detail_content">
+          <div class="content_right">
+            <div class="content_right_top">
+              <img src="images/daowayApp.png"/>
+            </div>
+            <div class="content_right_bottom">
+              <img src="images/daowayApp.png"/>
+            </div>
+          </div>
+          <div class="left">
+            <div class="detail_item">
+              <div class="detail_name"><span>服务项目</span></div>
+              <div class="detail_shop">
+                <div class="shop_left">
+                  <img src="http://img.daoway.cn/img/price/2017/12/06/47bb440b-5292-4100-8b16-88779f759bf5.jpg"/>
+                </div>
+                <div class="shop_right">
+                  <div class="shop_name">家庭保洁</div>
+                  <div class="shop_detail">家庭保洁服务，2小时起订，服务时间未使用完不做退款处理。阿...</div>
+                  <div class="shop_price">
+                    <span class="left"><span class="red"><span class="big">40</span>元/小时</span>原价<span class="through_line">45</span></span>
+                    <span class="right">已售67170</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="detail_detail">
+              <div class="dd_header">
+                <span>商家简介</span>
+              </div>
+              <div class="dd_content">
+                <div class="dd_title">上海家谐网络科技有限公司
+                  <img src="http://www.daoway.cn/pcimages/renzheng.jpg"/>
+                </div>
+                <div class="dd_contain">云家政是家政服务在线预订平台。我们的目标是让每个家庭都能获得诚信、便捷、有保障的家政服务。云家政拥有国内最大的实名认证家庭服务员数据库，目前平台上有超过100000名专业服务人员；数百个家政服务商，遍布全国主要城市各个社区。
+                  云家政倡导简单、轻松的生活方式。通过把分散的家政服务能力汇集和分配，让中国家庭获得诚信、便捷、有保障的家政服务，解决日常生活中的麻烦事，把更多时间留给自己和家人，提高生活品质。
+                </div>
+              </div>
+            </div>
+            <div class="detail_comment">
+              <div class="fenyeqi">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+<script type="text/javascript" src="js/jquery-1.10.1.js"></script>
+<script type="text/javascript" src="js/template.js"></script>
+<script type="text/javascript" src="../node_modules/moment/moment.js"></script>
+<script type="text/javascript" src="./js/index.js"></script>
+<script type="text/javascript">
+    $(function () {
+      $.getJSON('../data/comment.json',function (comment) {
+        let n = 1
+        let fenyeqi = $('.fenyeqi')
+        let oldVal = 1
+
+        let length = comment.length
+
+
+        update(n,comment,false)
+
+        let ye = Math.ceil(length/10)
+        let str = '<span> < 上一页 </span>'
+        for(i=0;i<ye;i++){
+          str+=`<span>${i+1}</span>`
+        }
+        str+=`<span> 下一页 ></span>`
+
+        fenyeqi.html(str)
+        $(fenyeqi.children()[n]).addClass('active')
+/*        fenyeqi.on('click',function (event) {
+          console.log(111)
+          let val = $(event.target).context.textContent
+          if(val.length === 1){
+            $('.detail_comment').html(`<div class="fenyeqi">${str}</div>`)
+
+            update(val*1,comment)
+            let fenyeqi = $('.fenyeqi')
+            $(fenyeqi.children()).removeClass('active')
+            $(fenyeqi.children()[val*1]).addClass('active')
+          }
+        })*/
+        fenyeqi.on('click',newCom)
+
+        function newCom(event) {
+          let val = $(event.target).context.textContent
+
+          if(val.length === 1){
+      /*      $('.detail_comment').html(`<div class="fenyeqi">${str}</div>`)
+
+            update(val*1,comment)
+            let fenyeqi = $('.fenyeqi')
+            fenyeqi.on('click',newCom)
+            $(fenyeqi.children()).removeClass('active')
+            $(fenyeqi.children()[val*1]).addClass('active')*/
+          }else if(val.length === 7){
+            val = oldVal-1
+            if(val<=1){
+              val = 1
+            }
+          }else if(val.length === 6){
+            val = oldVal+1
+            if (val>=length/10){
+              val = length/10
+            }
+          }else {
+            return
+          }
+
+
+          $('.detail_comment').html(`<div class="fenyeqi">${str}</div>`)
+          oldVal = val*1
+          update(val*1,comment,true)
+          let fenyeqi = $('.fenyeqi')
+          fenyeqi.on('click',newCom)
+          $(fenyeqi.children()).removeClass('active')
+          $(fenyeqi.children()[val*1]).addClass('active')
+
+
+        }
+
+
+      })
+      function update(n,comment,flag) {
+        let newArr = comment.slice(n === 1 ? 0:(n-1)*10, n*10)
+        let length = comment.length
+        let arr = newArr.map((item, index) => {
+          item.createtime = moment(item.createtime).format('YYYY-MM-DD')
+          item.starA = new Array(item.star)
+          item.starB = new Array(5-item.star)
+          return item
+        })
+        $.get('./template/serviceItem/commit.html',function (data) {
+          let render = template.compile(data)
+          let commentTmp = render({comment:arr,length: length})
+          $('.detail_comment').prepend(commentTmp)
+
+          if(flag){
+            window.scrollTo(0, 700)
+          }
+        })
+
+      }
+    })
+</script>
+</html>

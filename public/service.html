@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link rel="stylesheet" href="./css/reset.css">
+  <link rel="stylesheet" href="./css/service.css">
+</head>
+<body>
+  <div id="wrap">
+    <div id="header">
+      <div class="header_wrap">
+        <div class="header_logo">
+          <a href="#">
+            <img src="./images/logo.png" alt="logo"/>
+          </a>
+        </div>
+        <div class="header_nav">
+          <ul class="header_list">
+            <li class="header_item">
+              <a href="javascript:;">
+                <img src="images/citypoint.png"/>
+                <span>北京 切换城市</span>
+              </a>
+            </li>
+            <li class="header_item">
+              <a href="index.html">
+                首页
+              </a>
+            </li>
+            <li class="header_item">
+              <a href="#">
+                到位APP
+              </a>
+            </li>
+            <li class="header_item">
+              <a href="service.html" class="red">
+                服务商
+              </a>
+            </li>
+            <li class="header_item">
+              <a href="#">
+                商家入驻
+              </a>
+            </li>
+            <li class="header_item">
+              <a href="#">
+                关于我们
+              </a>
+            </li>
+            <li class="header_item">
+              <a href="#">
+                商家登录
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div id="content_wrap">
+      <div class="content">
+        <div class="content_header">服务商</div>
+        <div class="content_right">
+          <div class="content_right_top">
+            <img src="images/ruzhu.jpg"/>
+          </div>
+          <div class="content_right_bottom">
+            <img src="images/daowayApp.png"/>
+          </div>
+        </div>
+        <ul class="content_left">
+          <li class="content_more">
+            <span>查看更多商家</span>
+            <img src="images/down.jpg"/>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div id="footer">
+      <div class="content_item last_two">
+        <div class="content_item_wrap">
+          <div class="last_two_header">到位<span>服务</span>保障</div>
+          <p>到位平台担保交易安全，交易未成功100%退款</p>
+          <p>
+            <span>
+              <img src="http://www.daoway.cn/pcimages/anquan@2x.jpg">
+              优选服务
+            </span>
+            <span>
+              <img src="http://www.daoway.cn/pcimages/anquan@2x.jpg">
+              全程保障
+            </span>
+            <span>
+              <img src="http://www.daoway.cn/pcimages/anquan@2x.jpg">
+              安全无忧
+            </span>
+          </p>
+          <div class="city_list">
+          </div>
+        </div>
+      </div>
+      <div class="footer_bottom">
+        <div class="footer_banquan">©2015 版权所有  到位 daoway.com 京ICP备15001471号-1 北京邻家科技有限公司</div>
+      </div>
+    </div>
+  </div>
+</body>
+<script type="text/javascript" src="./js/jquery-1.10.1.js"></script>
+<script type="text/javascript" src="./js/template.js"></script>
+<script type="text/javascript" src="./js/index.js"></script>
+<script type="text/javascript">
+    $(function () {
+      let cityArr = ['北京', '上海', '广州', '深圳', '成都', '天津', '南京', '杭州', '重庆', '苏州', '武汉', '长沙', '济南',
+        '郑州', '西安', '沈阳', '福州', '厦门', '南昌', '合肥', '宁波', '无锡', '青岛', '大连', '东莞', '佛山',
+        '石家庄', '哈尔滨', '太原', '昆明', '贵阳', '南宁', '温州']
+
+      $.getJSON('../data/service.json',function (service) {
+        $.get('./template/service/content.html',function (data) {
+          let ul = $('.content_left')
+          let render = template.compile(data)
+          let contentTmp = render({service:service})
+          ul.prepend(contentTmp)
+          ul.on('click',function (event) {
+            /*console.log($(ul.children()).children().href('index.html'))*/
+            /*$(window).location.href('serviceItem.html')*/
+            location.href="serviceItem.html"
+
+          })
+        })
+      })
+
+      $.get('template/index/footer.html', function (data) {
+        let render = template.compile(data)
+        let footerTmp = render({cityArr})
+        $('.city_list').append(footerTmp)
+      })
+    })
+</script>
+
+</html>

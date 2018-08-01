@@ -1,0 +1,15 @@
+{{each service as value index}}
+<li>
+  <a href="javascript:;">
+    <img src="{{value.imgUrl}}">
+    <div class="content_left_home">
+      <img src="images/home1.png"/>
+      <span>{{value.title}}</span>
+    </div>
+    <div class="content_left_order">
+      <span>已接{{value.orderCount}}单</span>
+      <span>好评{{value.positiveRate}}</span>
+    </div>
+  </a>
+</li>
+{{/each}}

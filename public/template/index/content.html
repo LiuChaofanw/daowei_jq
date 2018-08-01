@@ -1,0 +1,29 @@
+{{each indexData as value index}}
+<div class="content_item">
+  <div class="content_item_wrap">
+    <div class="content_header">{{value.serviceIndex}}</div>
+    <div class="content_header_detail">
+      <span>
+        {{each value.serviceType as value index}}
+        <span>{{value}}</span>
+        {{/each}}
+      </span>
+      <span class="content_right">更多服务></span>
+    </div>
+    <ul class="content_list">
+      {{each value.shopList as value index}}
+      <li class="content_detail">
+        <img src="{{value.imgUrl}}"/>
+        <p class="content_detail_header">{{value.serviceName}}</p>
+        <p class="content_detail_des">{{value.description}}</p>
+        <div class="content_detail_price">
+          <span><span>{{value.price}}</span>元/小时</span>
+          <span>查看详情</span>
+        </div>
+      </li>
+      {{/each}}
+    </ul>
+    <div class="content_detail"></div>
+  </div>
+</div>
+{{/each}}
